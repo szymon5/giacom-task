@@ -1,25 +1,26 @@
+using GiacomTask.Models;
+using GiacomTask.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("Name=ConnectionStrings:DefaultConnection"));
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.MapGet("/AddTestCall", (ApplicationDbContext context) =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    context.CallDetails.Add(new CallDetail()
+    {
+        CallerID = 441215598896,
+        Recipient = "448000096481",
+        CallDate = DateOnly.Parse("2016-08-16"),
+        EndTime = TimeOnly.Parse("14:21:33"),
+        Duration = 43,
+        Cost = 0,
+        Reference = "C5DA9724701EEBBA95CA2CC5617BA93E4",
+        Currency = "GBP"
+    });
+    context.SaveChanges();
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
+    return context.CallDetails.ToList();
+});
 app.Run();
