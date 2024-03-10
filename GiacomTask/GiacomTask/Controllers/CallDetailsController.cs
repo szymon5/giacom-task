@@ -44,5 +44,8 @@ namespace GiacomTask.Controllers
 
         [HttpDelete("DeleteCallDetailRecord/{id}")]
         public string DeleteCallDetailRecord(long id) => database.DeleteCallDetailRecord(id);
+
+        [HttpPost("UploadNewCallDetailRecordsFromFile")]
+        public string UploadNewCallDetailRecordsFromFile([FromForm] IFormFile file) => database.UploadNewCallDetailRecordsFromFile(file);
     }
 }
