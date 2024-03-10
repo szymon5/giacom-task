@@ -11,5 +11,7 @@ namespace GiacomTask.DbCommunication
         public Database(ApplicationDbContext context) => this.context = context;
 
         public List<CallDetail> GetAllCalls() => context.CallDetails.ToList();
+
+        public long GetAverageCallDuration() => (long)context.CallDetails.ToList().Average(x => x.Duration);
     }
 }

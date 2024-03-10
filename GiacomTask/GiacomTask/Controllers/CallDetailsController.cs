@@ -24,5 +24,8 @@ namespace GiacomTask.Controllers
 
         [HttpGet("GetAllCalls")]
         public List<CallDetail> GetAllCalls() => database.GetAllCalls();
+
+        [HttpGet("GetAverageCallDuration")]
+        public long GetAverageCallDuration() => database.GetAverageCallDuration();
     }
 }
