@@ -30,5 +30,8 @@ namespace GiacomTask.Controllers
 
         [HttpGet("GetMaxCallDuration")]
         public long GetMaxCallDuration() => database.GetMaxCallDuration();
+
+        [HttpGet("GetMinCallDuration")]
+        public long GetMinCallDuration() => database.GetMinCallDuration();
     }
 }
