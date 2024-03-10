@@ -15,5 +15,7 @@ namespace GiacomTask.DbCommunication
         public long GetAverageCallDuration() => (long)context.CallDetails.ToList().Average(x => x.Duration);
 
         public long GetMaxCallDuration() => context.CallDetails.ToList().Max(x => x.Duration);
+
+        public long GetMinCallDuration() => context.CallDetails.ToList().Min(x => x.Duration);
     }
 }
