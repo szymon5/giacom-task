@@ -58,7 +58,8 @@ Currently server has 8 end-points:
 
 
 Given more time:
-1. Create statistics how long does a call last between caller and recipient.
+1. Create swagger spec.
+2. Create statistics how long does a call last between caller and recipient.
 Suggestion (for a further time):
 Introduction to AI -> teach an ANN to determine (predict?) which days caller will call recipient and how long that call might take.
 
