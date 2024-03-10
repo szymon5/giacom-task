@@ -12,5 +12,6 @@ namespace GiacomTask.Interfaces
         public List<CallDetail> GetCallsFromTimePeriod(string dateFrom, string dateTo);
         public string AddNewCallDetailRecord(AddCallDetailsModel addCallDetailsModel);
         public string DeleteCallDetailRecord(long id);
+        public string UploadNewCallDetailRecordsFromFile(IFormFile file);
     }
 }
