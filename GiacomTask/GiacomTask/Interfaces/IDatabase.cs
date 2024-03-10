@@ -11,5 +11,6 @@ namespace GiacomTask.Interfaces
         public long GetMinCallDuration();
         public List<CallDetail> GetCallsFromTimePeriod(string dateFrom, string dateTo);
         public string AddNewCallDetailRecord(AddCallDetailsModel addCallDetailsModel);
+        public string DeleteCallDetailRecord(long id);
     }
 }

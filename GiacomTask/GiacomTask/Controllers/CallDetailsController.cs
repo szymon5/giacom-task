@@ -41,5 +41,8 @@ namespace GiacomTask.Controllers
         [HttpPost("AddNewCallDetailRecord")]
         public string AddNewCallDetailRecord([FromBody] AddCallDetailsModel addCallDetailsModel) =>
             database.AddNewCallDetailRecord(addCallDetailsModel);
+
+        [HttpDelete("DeleteCallDetailRecord/{id}")]
+        public string DeleteCallDetailRecord(long id) => database.DeleteCallDetailRecord(id);
     }
 }

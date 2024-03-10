@@ -44,5 +44,17 @@ namespace GiacomTask.DbCommunication
             if (quantityBeforeAdding < quantityAfterAdding) return "New call detail record has been added.";
             else return "Something went wrong. Call detail has not been added.";
         }
+
+        public string DeleteCallDetailRecord(long id)
+        {
+            var record = context.CallDetails.FirstOrDefault(x => x.CallDetailID == id);
+            if(record != null)
+            {
+                context.CallDetails.Remove(record);
+                if (context.SaveChanges() == 1) return "Call detail record has been deleted.";
+                else return "Something went wrong. Call detail has not been deleted.";
+            }
+            else return "Such call detail does not exist.";
+        }
     }
 }
