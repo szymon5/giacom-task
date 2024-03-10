@@ -13,5 +13,7 @@ namespace GiacomTask.DbCommunication
         public List<CallDetail> GetAllCalls() => context.CallDetails.ToList();
 
         public long GetAverageCallDuration() => (long)context.CallDetails.ToList().Average(x => x.Duration);
+
+        public long GetMaxCallDuration() => context.CallDetails.ToList().Max(x => x.Duration);
     }
 }
