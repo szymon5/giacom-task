@@ -4,6 +4,7 @@ using GiacomTask.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GiacomTask.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240310185954_RevertToDateTime")]
+    partial class RevertToDateTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,8 +33,8 @@ namespace GiacomTask.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CallDetailID"));
 
-                    b.Property<DateOnly>("CallDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CallDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CallerID")
                         .IsRequired()
@@ -49,8 +52,8 @@ namespace GiacomTask.Migrations
                     b.Property<long>("Duration")
                         .HasColumnType("bigint");
 
-                    b.Property<TimeOnly>("EndTime")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Recipient")
                         .IsRequired()
