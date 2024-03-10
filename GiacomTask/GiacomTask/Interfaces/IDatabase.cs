@@ -8,5 +8,6 @@ namespace GiacomTask.Interfaces
         public long GetAverageCallDuration();
         public long GetMaxCallDuration();
         public long GetMinCallDuration();
+        public List<CallDetail> GetCallsFromTimePeriod(string dateFrom, string dateTo);
     }
 }
