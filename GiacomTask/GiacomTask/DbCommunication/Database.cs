@@ -1,4 +1,5 @@
-﻿using GiacomTask.Interfaces;
+﻿using GiacomTask.DbCommunication.Models;
+using GiacomTask.Interfaces;
 using GiacomTask.Models;
 using GiacomTask.Services;
 
@@ -20,5 +21,28 @@ namespace GiacomTask.DbCommunication
 
         public List<CallDetail> GetCallsFromTimePeriod(string dateFrom, string dateTo) =>
             context.CallDetails.Where(x => x.CallDate >= DateOnly.Parse(dateFrom) && x.CallDate <= DateOnly.Parse(dateTo)).ToList();
+
+        public string AddNewCallDetailRecord(AddCallDetailsModel addCallDetailsModel)
+        {
+            var quantityBeforeAdding = context.CallDetails.Count();
+            context.CallDetails.Add(new CallDetail()
+            {
+                CallerID = addCallDetailsModel.CallerID,
+                Recipient = addCallDetailsModel.Recipient,
+                CallDate = addCallDetailsModel.CallDate,
+                EndTime = addCallDetailsModel.EndTime,
+                Duration = addCallDetailsModel.Duration,
+                Cost = addCallDetailsModel.Cost,
+                Reference = addCallDetailsModel.Reference,
+                Currency = addCallDetailsModel.Currency
+            });
+
+            context.SaveChanges();
+
+            var quantityAfterAdding = context.CallDetails.Count();
+
+            if (quantityBeforeAdding < quantityAfterAdding) return "New call detail record has been added.";
+            else return "Something went wrong. Call detail has not been added.";
+        }
     }
 }

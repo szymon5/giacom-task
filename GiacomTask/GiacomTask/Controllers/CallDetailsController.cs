@@ -37,5 +37,9 @@ namespace GiacomTask.Controllers
         [HttpGet("GetCallsFromTimePeriod")]
         public List<CallDetail> GetCallsFromTimePeriod([FromBody] GetCallsFromTimePeriodModel getCallsFromTimePeriodModel) =>
             database.GetCallsFromTimePeriod(getCallsFromTimePeriodModel.DateFrom, getCallsFromTimePeriodModel.DateTo);
+
+        [HttpPost("AddNewCallDetailRecord")]
+        public string AddNewCallDetailRecord([FromBody] AddCallDetailsModel addCallDetailsModel) =>
+            database.AddNewCallDetailRecord(addCallDetailsModel);
     }
 }
