@@ -33,5 +33,9 @@ namespace GiacomTask.Controllers
 
         [HttpGet("GetMinCallDuration")]
         public long GetMinCallDuration() => database.GetMinCallDuration();
+
+        [HttpGet("GetCallsFromTimePeriod")]
+        public List<CallDetail> GetCallsFromTimePeriod([FromBody] GetCallsFromTimePeriodModel getCallsFromTimePeriodModel) =>
+            database.GetCallsFromTimePeriod(getCallsFromTimePeriodModel.DateFrom, getCallsFromTimePeriodModel.DateTo);
     }
 }

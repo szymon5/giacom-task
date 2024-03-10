@@ -17,5 +17,8 @@ namespace GiacomTask.DbCommunication
         public long GetMaxCallDuration() => context.CallDetails.ToList().Max(x => x.Duration);
 
         public long GetMinCallDuration() => context.CallDetails.ToList().Min(x => x.Duration);
+
+        public List<CallDetail> GetCallsFromTimePeriod(string dateFrom, string dateTo) =>
+            context.CallDetails.Where(x => x.CallDate >= DateOnly.Parse(dateFrom) && x.CallDate <= DateOnly.Parse(dateTo)).ToList();
     }
 }
