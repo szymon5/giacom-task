@@ -63,6 +63,3 @@ Given more time:
 2. Create statistics how long does a call last between caller and recipient,
 Suggestion (for a further time):
 Introduction to AI -> teach an ANN to determine (predict?) which days caller will call recipient and how long that call might take.
-
-Pending:
-Tests
