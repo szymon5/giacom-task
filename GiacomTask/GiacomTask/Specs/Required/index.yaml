@@ -1,0 +1,10 @@
+swagger: '2.0'
+info:
+  $ref: ../required/info/index.yaml
+schemes:
+  - http
+host: 'localhost:8080'
+paths:
+  $ref: ../required/paths/index.yaml
+definitions:
+  $ref: ../required/definitions/index.yaml
