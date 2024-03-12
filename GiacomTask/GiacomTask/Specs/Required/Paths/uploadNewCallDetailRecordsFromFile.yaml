@@ -1,0 +1,17 @@
+    post:
+      consumes:
+        - multipart/form-data
+      tags:
+        - Call Details Record
+      summary: Uploads new call detail records from csv file
+      parameters:
+        - name: payload
+          in: formData
+          type: file
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/UploadNewCallDetailRecordsFromFileResponse'

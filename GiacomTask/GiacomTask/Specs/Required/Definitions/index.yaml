@@ -1,0 +1,8 @@
+$ref: ../required/definitions/getAllCalls.yaml
+$ref: ../required/definitions/getAverageCallDuration.yaml
+$ref: ../required/definitions/getMaxCallDuration.yaml
+$ref: ../required/definitions/getMinCallDuration.yaml
+$ref: ../required/definitions/getCallsFromTimePeriod.yaml
+$ref: ../required/definitions/addNewCallDetailRecord.yaml
+$ref: ../required/definitions/deleteCallDetailRecord.yaml
+$ref: ../required/definitions/uploadNewCallDetailRecordsFromFile.yaml

@@ -1,0 +1,248 @@
+swagger: '2.0'
+info:
+  description: >-
+    Swagger specs for Call Detail Record APIs
+  version: 0.2.0
+  title: Call Detail Record Backend
+  termsOfService: 'http://swagger.io/terms/'
+schemes:
+  - http
+host: 'localhost:8080'
+paths:
+  /GetAllCalls:
+    get:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Gets all call detail records
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/GetAllCallsResponse'
+  /GetAverageCallDuration:
+    get:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Gets average call duration
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/GetAverageCallDurationResponse'
+  /GetMaxCallDuration:
+    get:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Gets max call duration
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/GetMaxCallDurationResponse'
+  /GetMinCallDuration:
+    get:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Gets min call duration
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/GetMinCallDurationResponse'
+  /GetCallsFromTimePeriod:
+    post:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Gets calls from time period
+      parameters:
+        - name: payload
+          in: body
+          schema: 
+            $ref: '#/definitions/GetCallsFromTimePeriodRequest'
+          description: request body.
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/GetCallsFromTimePeriodResponse'
+  /AddNewCallDetailRecord:
+    post:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Adds new call detail record
+      parameters:
+        - name: payload
+          in: body
+          schema: 
+            $ref: '#/definitions/AddNewCallDetailRecordRequest'
+          description: request body.
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/AddNewCallDetailRecordResponse'
+  /DeleteCallDetailRecord/{id}:
+    post:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Deletes call detail record
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          description: request body.
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/DeleteCallDetailRecordResponse'
+  /UploadNewCallDetailRecordsFromFile:
+    post:
+      consumes:
+        - multipart/form-data
+      tags:
+        - Call Details Record
+      summary: Uploads new call detail records from csv file
+      parameters:
+        - name: payload
+          in: formData
+          type: file
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/UploadNewCallDetailRecordsFromFileResponse'
+definitions:
+  GetAllCallsRequest:
+    type: object
+
+  GetAllCallsResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        "CallDetailID": 
+          type: integer
+        "CallerID": 
+          type: string
+        "Recipient": 
+          type: string
+        "CallDate": 
+          type: string
+        "EndTime": 
+          type: string
+        "Duration": 
+          type: integer
+        "Cost": 
+          type: string
+        "Reference": 
+          type: string
+        "Currency": 
+          type: string
+  GetAverageCallDurationRequest:
+    type: object
+
+  GetAverageCallDurationResponse:
+    type: integer
+  GetMaxCallDurationRequest:
+    type: object
+
+  GetMaxCallDurationResponse:
+    type: integer
+  GetMinCallDurationRequest:
+    type: object
+
+  GetMinCallDurationResponse:
+    type: integer
+  GetCallsFromTimePeriodRequest:
+    type: object
+    properties:
+      "DateFrom":
+        type: string
+      "DateTo":
+        type: string
+  
+  GetCallsFromTimePeriodResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        "CallDetailID": 
+          type: integer
+        "CallerID": 
+          type: string
+        "Recipient": 
+          type: string
+        "CallDate": 
+          type: string
+        "EndTime": 
+          type: string
+        "Duration": 
+          type: integer
+        "Cost": 
+          type: string
+        "Reference": 
+          type: string
+        "Currency": 
+          type: string
+  AddNewCallDetailRecordRequest:
+    type: object
+    properties:
+      "CallDetailID": 
+        type: integer
+      "CallerID": 
+        type: string
+      "Recipient": 
+        type: string
+      "CallDate": 
+        type: string
+      "EndTime": 
+        type: string
+      "Duration": 
+        type: integer
+      "Cost": 
+        type: string
+      "Reference": 
+        type: string
+      "Currency": 
+        type: string
+  
+  AddNewCallDetailRecordResponse:
+    type: string
+  DeleteCallDetailRecordResponse:
+    type: string
+  UploadNewCallDetailRecordsFromFileResponse:
+    type: string

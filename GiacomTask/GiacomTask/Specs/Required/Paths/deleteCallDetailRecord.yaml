@@ -1,0 +1,19 @@
+    post:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Deletes call detail record
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          description: request body.
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/DeleteCallDetailRecordResponse'

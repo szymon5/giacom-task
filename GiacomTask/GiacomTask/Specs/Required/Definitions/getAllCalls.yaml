@@ -1,0 +1,26 @@
+  GetAllCallsRequest:
+    type: object
+
+  GetAllCallsResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        "CallDetailID": 
+          type: integer
+        "CallerID": 
+          type: string
+        "Recipient": 
+          type: string
+        "CallDate": 
+          type: string
+        "EndTime": 
+          type: string
+        "Duration": 
+          type: integer
+        "Cost": 
+          type: string
+        "Reference": 
+          type: string
+        "Currency": 
+          type: string

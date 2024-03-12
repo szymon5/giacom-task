@@ -1,0 +1,13 @@
+    get:
+      consumes:
+        - application/json
+      tags:
+        - Call Details Record
+      summary: Gets min call duration
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK.
+          schema: 
+            $ref: '#/definitions/GetMinCallDurationResponse'

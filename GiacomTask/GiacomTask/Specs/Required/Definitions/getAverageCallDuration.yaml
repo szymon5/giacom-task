@@ -1,0 +1,5 @@
+  GetAverageCallDurationRequest:
+    type: object
+
+  GetAverageCallDurationResponse:
+    type: integer
