@@ -1,0 +1,5 @@
+  GetMinCallDurationRequest:
+    type: object
+
+  GetMinCallDurationResponse:
+    type: integer

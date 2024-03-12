@@ -1,0 +1,16 @@
+  /GetAllCalls:
+    $ref: ../required/paths/getAllCalls.yaml
+  /GetAverageCallDuration:
+    $ref: ../required/paths/getAverageCallDuration.yaml
+  /GetMaxCallDuration:
+    $ref: ../required/paths/getMaxCallDuration.yaml
+  /GetMinCallDuration:
+    $ref: ../required/paths/getMinCallDuration.yaml
+  /GetCallsFromTimePeriod:
+    $ref: ../required/paths/getCallsFromTimePeriod.yaml
+  /AddNewCallDetailRecord:
+    $ref: ../required/paths/addNewCallDetailRecord.yaml
+  /DeleteCallDetailRecord/{id}:
+    $ref: ../required/paths/deleteCallDetailRecord.yaml
+  /UploadNewCallDetailRecordsFromFile:
+    $ref: ../required/paths/uploadNewCallDetailRecordsFromFile.yaml
